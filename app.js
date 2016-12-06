@@ -32,11 +32,7 @@ var firstAndPike = {
       this.totalfirstAndPikeCookies += this.cookiesSoldEachHour[i];
     }
   },
-  // sumCookiesEachDay: function(){
-  //   var totalCookiesEachDay = this.cookiesSoldEachHour.reduce(function (a,b){
-  //     return a + b;
-  //   }
-  // },
+
 
   render: function(){
     var list = document.getElementById('firstAndPike');
@@ -44,7 +40,7 @@ var firstAndPike = {
       var liEl = document.createElement('li');
       liEl.textContent = this.totalCookiesSoldEachHour[i] + ':' + this.totalCookiesEachDay;
       list.appendChild(liEl);
-      console.log('franch name');
+      // console.log('franch name');
     }
     liEl.textContent = document.createElement ('li');
   }

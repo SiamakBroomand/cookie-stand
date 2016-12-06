@@ -1,8 +1,8 @@
 'use strict';
 // var allStores = ['First and Pike', 'SeaTac Airport', 'SeattleCenter', 'Capitol Hill', 'Alki'];
-// var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
-function Store(locationName, minCustPerHour, maxCustPerHour, avgCookiesperCust){
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+var allStore = [];
+var Store = function(locationName, minCustPerHour, maxCustPerHour, avgCookiesperCust){
   this.locationName = locationName;
   this.minCustPerHour = minCustPerHour;
   this.maxCustPerHour = maxCustPerHour;
@@ -10,19 +10,49 @@ function Store(locationName, minCustPerHour, maxCustPerHour, avgCookiesperCust){
   this.randomCustPerHour = [];
   this.totalCookiesSoldEachHour = [];
   this.totalDailyCookiesSales = 0;
-  //
-  this.introduction = function(){
-  //   console.log('location is ' + locationName + ' and randomCustPerHour is' + randomCustPerHour);
-  };
+  this.calcRandomCustPerHour = function(){
+    for (var i = 0; i < hours.length ; i++){
+      this.randomCustPerHour.push(Math.floor(Math.random() *( this.maxCustPerHour - this.minCustPerHour + 1 )) + this.minCustPerHour );
+      console.log(this.randomCustPerHour);
+    }
+  }
+  this.calcTotalCookiesSoldEachHour = function() {
+    this.calcRandomCustPerHour();
+    for (var i = 0; i < hours.length ; i++){
+      this.totalCookiesSoldEachHour.push(Math.ceil(this.randomCustPerHour[i] * this.avgCookiesperCust));
+        // this.totalCookies += this.cookiesSoldEachHour[i];
+      this.totalDailyCookiesSales += this.totalCookiesSoldEachHour[i];
+        // console.log(this.totalDailycookiesales, 'running total of daily cookie sales');
+    }
+  }
+  this.calcTotalCookiesSoldEachHour();
   allStore.push(this);
-  console.log(this);
-}
-var allStore = [];
+  // console.log(this);
+
+  }
+
+
 new Store('First and Pike', 23,65,6.3);
 new Store('SeaTac Airpot', 3, 24, 1.2);
 new Store('Seattle Center', 11, 38, 3.7);
 new Store('Capitol Hill', 20, 38, 2.3);
 new Store('Alki', 2, 16, 4.6);
+
+//create  function to create html
+render: function(){
+  for (var i = 0 ; i < hours.length; i++){
+    var trEl = document.createElement('tr');
+    var thEl = document.createElement('th');
+    thEl.textContent = [i];
+    trEl.appendChild(thEl);
+  }
+function storeTablesJS(){
+  var storeTable = document.getElementById('storejs');
+  console.log('storeTable is', storejs);
+}
+
+
+
 
 
 
@@ -34,17 +64,17 @@ new Store('Alki', 2, 16, 4.6);
 //   randomCustPerHour: [],
 //   totalCookiesSoldEachHour: [],
 //   totalDailyCookiesSales: 0,
-//   calcRandomCustPerHour: function() {
-//     for (var i = 0; i < hours.length ; i++){
-//       // this.randomCustPerHour[i] = Math.floor(Math.random() * ( this.maxCustPerHour - this.minCustPerHour + 1) + this.minCustPerHour);
-//       this.randomCustPerHour.push(Math.floor(Math.random() *( this.maxCustPerHour - this.minCustPerHour + 1 )) + this.minCustPerHour );
+  // calcRandomCustPerHour: function() {
+  //   for (var i = 0; i < hours.length ; i++){
+  //     // this.randomCustPerHour[i] = Math.floor(Math.random() * ( this.maxCustPerHour - this.minCustPerHour + 1) + this.minCustPerHour);
+  //     this.randomCustPerHour.push(Math.floor(Math.random() *( this.maxCustPerHour - this.minCustPerHour + 1 )) + this.minCustPerHour );
 //       // console.log(this.randomCustPerHour);
 //     }
 //   },
 //
 //
 //   calcTotalCookiesSoldEachHour: function() {
-//     //callcalcrandomcustperhour()
+//
 //     this.calcRandomCustPerHour();
 //     for (var i = 0; i < hours.length ; i++){
 //       this.totalCookiesSoldEachHour.push(Math.ceil(this.randomCustPerHour[i] * this.avgCookiesperCust));
@@ -246,5 +276,4 @@ new Store('Alki', 2, 16, 4.6);
 //     emptyUl.appendChild (liEl);
 //   }
 // }
-//
-// alki.render();
+// alki.render();//eslint-disable-line

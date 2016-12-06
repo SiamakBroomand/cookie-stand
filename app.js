@@ -15,7 +15,6 @@ var firstAndPike = {
   calcRandomCustPerHour: function() {
     for (var i = 0; i < hours.length ; i++){
       this.randomCustPerHour[i] = Math.floor(Math.random() * ( this.maxCustPerHour - this.minCustPerHour + 1) + this.minCustPerHour);
-      console.log(this.randomCustPerHour[i]);
     }
   },
 

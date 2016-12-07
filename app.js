@@ -28,7 +28,9 @@ var Store = function(locationName, minCustPerHour, maxCustPerHour, avgCookiesper
   this.calcTotalCookiesSoldEachHour();
   allStore.push(this);
   // console.log(this);
+render = function(){
 
+}
   }
 
 
@@ -39,19 +41,24 @@ new Store('Capitol Hill', 20, 38, 2.3);
 new Store('Alki', 2, 16, 4.6);
 
 //create  function to create html
-render: function(){
-  for (var i = 0 ; i < hours.length; i++){
-    var trEl = document.createElement('tr');
-    var thEl = document.createElement('th');
-    thEl.textContent = [i];
-    trEl.appendChild(thEl);
-  }
+
 function storeTablesJS(){
   var storeTable = document.getElementById('storejs');
   console.log('storeTable is', storejs);
 }
+function makeHeaderRow(){
+  for (var i = 0 ; i < hours.length; i++){
+    var trEl = document.createElement('tr');
+    var thEl = document.createElement('th');
+    thEl.textContent = 'hours[i]';
+    trEl.appendChild(thEl);
+  }
+}
 
 
+makeHeaderRow();
+makeStoreRows();
+makeFooterRow();
 
 
 

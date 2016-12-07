@@ -1,7 +1,11 @@
 'use strict';
-// var allStores = ['First and Pike', 'SeaTac Airport', 'SeattleCenter', 'Capitol Hill', 'Alki'];
+//
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Daily Location Total'];
-var allStore = [];
+// var allStore = [];
+var allStores = ['First and Pike', 'SeaTac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
+var storeTable = document.getElementById('storejs');
+
+//constructor
 var Store = function(locationName, minCustPerHour, maxCustPerHour, avgCookiesperCust){
   this.locationName = locationName;
   this.minCustPerHour = minCustPerHour;
@@ -26,13 +30,14 @@ var Store = function(locationName, minCustPerHour, maxCustPerHour, avgCookiesper
     }
   }
   this.calcTotalCookiesSoldEachHour();
-  allStore.push(this);
+  allStores.push(this);
   // console.log(this);
 //   render = function(){
 //
 //   }
 }
 
+//instances
 new Store('First and Pike', 23,65,6.3);
 new Store('SeaTac Airpot', 3, 24, 1.2);
 new Store('Seattle Center', 11, 38, 3.7);
@@ -42,7 +47,7 @@ new Store('Alki', 2, 16, 4.6);
 //create  function to create html
 //
 // function storeTablesJS(){
-var storeTable = document.getElementById('storejs');
+
 
   // console.log('storeTable is', storejs);
 // }
@@ -57,18 +62,30 @@ function makeHeaderRow(){
   }
   storeTable.appendChild(trEl);
 }
-function makeStoreRows(){
+
+function storeRows(){
   var trEl = document.createElement('tr');
-  var thEl = document.createElement('th');
-  thEl.textContent = ('First and Pike');
-  trEl.appendChild(thEl);
-  storeTable.appendChild(thEl);
+  for (var i = 0; i < allStores.length; i++){
+    var thEl = document.createElement('th');
+    thEl.textContent = allStores[i];
+    trEl.appendChild(thEl);
+  }
+  storeTable.appendChild(trEl);
 }
+  // this might be good for render
+  // for (var i = 0; i < hours.length; i++){
+  //   var boxRowTwo = document.createElement ('th');
+  //   thEl.textContent = this.totalCookiesSoldEachHour[i];
+  //   trEl.appendChild(boxRowTwo);
+  // }
+
+
+
 
 
 
 makeHeaderRow();
-makeStoreRows();
+storeRows();
 // makeFooterRow();
 
 

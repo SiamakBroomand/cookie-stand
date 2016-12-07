@@ -62,7 +62,7 @@ function makeHeaderRow(){
   }
   storeTable.appendChild(trEl);
 }
-
+//storerows
 function storeRows(){
   var trEl = document.createElement('tr');
   for (var i = 0; i < allStores.length; i++){

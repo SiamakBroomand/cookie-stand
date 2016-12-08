@@ -28,7 +28,19 @@ var Store = function(locationName, minCustPerHour, maxCustPerHour, avgCookiesper
       this.totalDailyCookiesSales += this.totalCookiesSoldEachHour[i];
         // console.log(this.totalDailycookiesales, 'running total of daily cookie sales');
     }
+    Store.prototype.render = function(){
+      var trElStore = document.createElement('tr');
+      trElStore.innerHTML = this.locationName + this.minCustPerHour + this.maxCustPerHour + this.avgCookiesperCust;
+      return trElStore;
+    }
+    // function renderAllStores(){
+    //   storeRow.innerHTML= ' ';
+    //   for (var i = 0; i < allStores.length; i++){
+    //     storeRow.appendChild(allStores[i].render());
+    //   }
+    // }
   }
+
 
   this.render = function(){
     this.calcTotalCookiesSoldEachHour();

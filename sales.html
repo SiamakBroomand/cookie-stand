@@ -2,20 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Pat cookie stand</title>
-
+    <title>Salmon cookie stand</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
+
   <body>
-    <h3>cookie stores</h3>
+    <h3>Salmon cookie stores Estimate</h3>
+
+    <form id="plus-store-form">
+      <fieldset>
+        <legend> Try it yourself</legend>
+
+        <label for ="store">Add a Store: </label>
+        <input name="store" type="text"/>
+
+        <label for="minCustomer">Min: </label>
+        <input name="minCustomer" type="number"/>
+
+        <label for="maxCustomer">Max: </label>
+        <input name="maxCustomer" type="number"/>
+
+        <label for="averageCookies">Avg Cookies: </label>
+        <input name="averageCookies" step=".1" type="number"/>
+
+        <button type="submit">Submit </button>
+
+      </fieldset>
+    </form>
+    <button id="clear-store-list">Clear added store!</button>
+
     <table id="storejs"></table>
-    <!-- <ul id="firstAndPike">first and Pike</ul>
-    <ul id="seaTac">SeaTac Airport</ul>
-    <ul id="seaCenter">Seattle Center</ul>
-    <ul id="capitolHill">Capitol Hill</ul>
-    <ul id="alki">Alki</ul> -->
 
 
-    <!-- <p>All of the action is in the adjacent app.js and the JS console</p> -->
+    <ul id="store-list"></ul>
 
     <script src="app.js"></script>
   </body>

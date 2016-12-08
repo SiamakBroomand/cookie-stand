@@ -70,7 +70,7 @@ var Store = function(locationName, minCustPerHour, maxCustPerHour, avgCookiesper
 // // +++++++++++++++++++++++++++++++++++++++++++++++++++++
 // // Event listener for the 'Clear all stores' button
   clearStoreList.addEventListener('click', function() {
-    storeList.innerHTML = ' ';
+    storeList.innerHTML = '';
     // console.log('You just cleared the store list!');
     allStores = [];
   });

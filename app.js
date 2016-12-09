@@ -42,9 +42,11 @@ var Store = function(locationName, minCustPerHour, maxCustPerHour, avgCookiesper
       storeList.appendChild(allStores[i].render());
     }
   }
-  function handleCommentSubmit(event){
+  function handleStoreSubmit(event){
 
     event.preventDefault(); //gotta have it for this purpose. prevents page reload on a 'submit' event
+
+    //validation to prevent empty form fields
     if (!event.target.store.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.averageCookies.value){
       return alert('All fields must be filled!');
     }
@@ -65,7 +67,7 @@ var Store = function(locationName, minCustPerHour, maxCustPerHour, avgCookiesper
   }
 // // +++++++++++++++++++++++++++++++++++++++++++++++++++++
 // // Event listener for comment submission form
-  storeForm.addEventListener('submit', handleCommentSubmit);
+  storeForm.addEventListener('submit', handleStoreSubmit);
 //
 // // +++++++++++++++++++++++++++++++++++++++++++++++++++++
 // // Event listener for the 'Clear all stores' button
@@ -75,7 +77,7 @@ var Store = function(locationName, minCustPerHour, maxCustPerHour, avgCookiesper
     allStores = [];
   });
 
-  storeForm.addEventListener('submit', handleCommentSubmit);
+  storeForm.addEventListener('submit', handleStoreSubmit);
 
   this.render = function(){
     this.calcTotalCookiesSoldEachHour();

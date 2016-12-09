@@ -3,20 +3,43 @@
   color: black;
   text-align: center;
 }
+body{
+  background-image: url("family.jpg");
+  background-repeat: no-repeat;
+   background-position:center;
+   background-attachment: fixed;
+}
 #nav, #photos, .box, #footer{
-  background-color: #b3d9ff;
+  background-color:transparent;;
   margin-top: 20px;
   padding: 10px 0px 5px opx;
 }
 #photos, .box{
+  width
   height: 100px;
+}
+ul{
+  word-spacing: normal;
 }
 li{
   display: inline;
-  padding: 5px;
+  padding: 10px;
 }
 img{
-  width:10%;
-  height:10%;
-
+  background-color:transparent;;
+  width: 120px;
+  padding: 10px;
+  margin: 0;
+}
+p #column-one{
+  overflow: visible;
+}
+div #box-one{
+  background-color:transparent;;
+    width: 120px;
+    padding: 25px;
+    margin: 25px;
+}
+div .store-name, .salmon-photo{
+  text-align:left;
 }
